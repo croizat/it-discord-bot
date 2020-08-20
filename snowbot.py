@@ -36,6 +36,12 @@ async def roll(ctx, dice: str):
 @bot.command()
 async def members(ctx):
     """Returns number of members in the server, not including bots"""
+    await ctx.send(f'member count: {len([m for m in ctx.guild.members if not m.bot])}')
+
+
+@bot.command()
+async def time(ctx, time: str, src_zone: str, dest_zone: str):
+    """converts time between given timezones"""
     # get the time given in UTC
     with open('timezones.csv', newline='') as csvfile:
         timezones = csv.reader(csvfile, delimiter=',')
@@ -88,11 +94,6 @@ async def members(ctx):
         # if it get's here timezone code was wrong
         print('Second timezone not found')
 
-    await ctx.send(f'member count: {len([m for m in ctx.guild.members if not m.bot])}')
-
-
-@bot.command()
-async def time(ctx, time: str, src_zone: str, dest_zone: str):
     await ctx.send(f'{time} {src_zone} is {converted_time} {dest_zone}')
 
 
