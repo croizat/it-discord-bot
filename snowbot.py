@@ -7,7 +7,7 @@ import csv
 import datetime
 
 description = '''utility bot'''
-bot = commands.Bot(command_prefix='%', description=description)
+bot = commands.Bot(command_prefix=';', description=description)
 BOT_TOKEN = os.environ.get('BOT_TOKEN')
 
 
@@ -65,10 +65,10 @@ async def time(ctx, time: str, src_zone: str, dest_zone: str):
     def get_utc_time(timezones):
         for row in timezones:
             # check for timezone argument against csv data
-            if row[0].lower() == sys.argv[2].lower():
+            if row[0].lower() == src_zone.lower():
                 utc_timezone = row[2]
                 utc_time_dif = utc_timezone[3:]
-                entered_time = datetime.datetime.strptime(sys.argv[1], '%H.%M')
+                entered_time = datetime.datetime.strptime(time, '%H.%M')
                 # split utc time zone to hours and minutes in case of time zones with minutes
                 split_time = utc_time_dif.split('.')
                 time_dif_h = 0 - float(split_time[0])
@@ -86,7 +86,7 @@ async def time(ctx, time: str, src_zone: str, dest_zone: str):
     def get_target_time_dif(timezones):
         # check for timezone argument against csv data
         for row in timezones:
-            if row[0].lower() == sys.argv[3].lower():
+            if row[0].lower() == dest_zone.lower():
                 utc_timezone = row[2]
                 utc_time_dif = utc_timezone[3:]
                 split_time = utc_time_dif.split('.')
