@@ -1,14 +1,19 @@
 import discord
 from discord.ext import commands
-import random
+
 import os
 from platform import python_version
+
+import random
 import csv
 import datetime
 
 description = '''utility bot'''
 bot = commands.Bot(command_prefix=';', description=description)
-BOT_TOKEN = os.environ.get('BOT_TOKEN')
+test_channel_id = '233452818860736512'  # bot testing channel
+reminder_channel_id = '753216226595176529'
+send_time = '21:30'  # 7:30am Sydney, +10 UTC
+send_time_test = '23:50'
 
 
 @bot.event
@@ -18,6 +23,28 @@ async def on_ready():
     print(bot.user.id)
     print(f'Running python version {python_version()}')
     print('------')
+
+
+@bot.event
+async def on_ready():
+    print(bot.user.name)
+    print(bot.user.id)
+
+
+async def time_check():
+    await bot.wait_until_ready()
+    message_channel = bot.get_channel(test_channel_id)
+    while not bot.is_closed:
+        now = datetime.strftime(datetime.now(), '%H:%M')
+        if now == send_time_test:
+            message = 'test'
+            await bot.send_message(message_channel, message)
+            time = 90
+        else:
+            time = 1
+        await asyncio.sleep(time)
+
+bot.loop.create_task(time_check())
 
 
 @bot.command()
@@ -136,4 +163,4 @@ async def time(ctx, time: str, src_zone: str, dest_zone: str):
 #     """Is the bot cool?"""
 #     await ctx.send('Yes, the bot is cool.')
 
-bot.run(BOT_TOKEN)
+bot.run(os.environ.get('BOT_TOKEN'))
