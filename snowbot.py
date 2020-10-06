@@ -119,7 +119,8 @@ async def on_message(message):
         for line in output:
             await message.channel.send(line)
     if "epstein" in message.content.lower():
-        output = """DRAKE: He’s right in there. See, I put him on suicide watch.
+        output = """JOSH: Drake... where's Epstein?
+        DRAKE: He’s right in there. See, I put him on suicide watch.
         [laugh track]
         JOSH: You were supposed to monitor him constantly.
         DRAKE: Dude, I'm gonna!
