@@ -53,23 +53,23 @@ async def Rates(ctx):
 
 @bot.command()
 async def Convert(ctx, *args):
-    if len(args) != 4:
-        await ctx.send('Invalid number of arguments')
+    if len(args) != 3:
+        await ctx.send('[amount] [from_currency] [to_currency]')
         return
 
     fromCurrency = args[1].upper()
-    toCurrency = args[3].upper()
+    toCurrency = args[2].upper()
     amount = args[0]
 
     if not amount.isnumeric():
-        await ctx.send('Amount must be numeric')
+        await ctx.send("""use numbers, that'd help""")
         return
 
     amount = float(amount)
     currency = Currency.Utility()
 
     if not currency.exist(fromCurrency.upper()) or not currency.exist(toCurrency.upper()):
-        await ctx.send('One or more currency is not supported')
+        await ctx.send('lol')
         return
 
     market = LiveMarket.API()
@@ -120,18 +120,18 @@ async def on_message(message):
             await message.channel.send(line)
     if "epstein" in message.content.lower():
         output = ["""JOSH: Drake... where's Epstein?""",
-        """DRAKE: He’s right in there. See, I put him on suicide watch.""",
-        """[laugh track]""",
-        """JOSH: You were supposed to monitor him constantly.""",
-        """DRAKE: Dude, I'm gonna!""",
-        """JOSH: Oh really?""",
-        """DRAKE: Yes!""",
-        """JOSH: So go check on him!""",
-        """DRAKE: Okay, I will! tcch""",
-        """[laugh track]""",
-        """[rattles the door, peeps through the door, turns around]""",
-        """DRAKE: ...I see the problem.""",
-        """JOSH: Oh do ya?"""]
+                  """DRAKE: He’s right in there. See, I put him on suicide watch.""",
+                  """[laugh track]""",
+                  """JOSH: You were supposed to monitor him constantly.""",
+                  """DRAKE: Dude, I'm gonna!""",
+                  """JOSH: Oh really?""",
+                  """DRAKE: Yes!""",
+                  """JOSH: So go check on him!""",
+                  """DRAKE: Okay, I will! tcch""",
+                  """[laugh track]""",
+                  """[rattles the door, peeps through the door, turns around]""",
+                  """DRAKE: ...I see the problem.""",
+                  """JOSH: Oh do ya?"""]
         for line in output:
             await message.channel.send(line)
     if "drugs" in message.content.lower():
@@ -140,13 +140,33 @@ async def on_message(message):
     if "paris" in message.content.lower() or "venice" in message.content.lower():
         output = """You know Paris? In English, it's pronounced "Paris" but everyone else pronounces it without the "s" sound, like the French do. But with Venezia, everyone pronouces it the English way – "Venice". Like The Merchant of Venice or Death in Venice. WHY, THOUGH!? WHY ISN'T THE TITLE DEATH IN VENEZIA!? ARE YOU FUCKING KIDDING ME!? IT TAKES PLACE IN ITALY, SO USE THE ITALIAN WORD, DAMMIT! THAT SHIT PISSES ME OFF! BUNCH OF DUMBASSES!"""
         await message.channel.send(output)
+    if "attack helicopter" in message.content.lower():
+        output = """I sexually Identify as the "I sexually identify as an attack helicopter" joke. Ever since I was a child, I've dreamed of flippantly dismissing any concepts or discussions regarding gender that don't fit in with what I learned in 8th grade bio. People say to me that this joke hasn't been funny since 2014 and please at least come up with a new one, but I don't care, I'm hilarious. I'm having a plastic surgeon install Ctrl, C, and V keys on my body. From now on I want you guys to call me "epic kek dank meme tr***ies owned with facts and logic" and respect my right to shit up social media. If you can't accept me you're a memeophobe and need to check your ability-to-critically-think privilege. Thank you for being so understanding."""
+        await message.channel.send(output)
+    if "kfc" in message.content.lower():
+        output = """One time I was asked if I was a legs man or a breasts man, I said I was into shaved pussy and anal and now I’m “banned from KFC” and “a possible sex offender”"""
+        await message.channel.send(output)
+    if "cat" in message.content.lower():
+        output = """cat"""
+        await message.channel.send(output)
+    if "loli" in message.content.lower():
+        output = ["""1. A fetish does not make you a creep. For instance, people can be turned on by incest porn, but not want to fuck their own sister. Furries don't often want to fuck animals. And PLENTY of people like porn that involves cheating or rape, but would NEVER do those. Just so, loli fans aren't just a bunch of pedos (though statistically maybe a few probably are, but you could say that about any fetish). For instance, I'm a loli fan myself, but I have an 8 year old daughter who regularly brings friends over, and not ONCE (I swear) have I seen a single one of them in a sexual light. I'm attracted to the cute designs and innocent attitudes of lolis, that doesn't mean I'm gonna go fuck children, that's obviously fucking disgusting. Not to mention, most lolis are legal, it's the design, NOT the age that makes a loli.?""",
+                  """2. Anime style video games, and games from Japan always have the "cute" option when picking love interests. Usually some young, innocent girl with a shy attitude. And yes, I'm well aware Futaba kinda falls in that category too, but she can also fall under the "geeky girl" concept, which is also typically a separate option from the "cute" one. And since the twins are explained multiple times to be much older, that really does just make them cute, and nothing more. It's a very normal thing for a game like this to make them dateable.""",
+                  """3. THEY'RE FUCKING VIRTUAL. At the end of the day, if my first two points didn't make you feel stupid, this one should. If you can't accept that people can have a fetish without becoming a creep, or that these are normal, long time tropes in Japanese games, then at least accept the fact that there's no point attacking people for wanting VIRTUAL CHARACTERS to be dateable. After all, who the hell is that hurting? Sure as hell not any kids, that's for sure. So why even bother getting pissy? What, cuz YOU don't wanna date em? Then don't! Simple as that!"""]
+        for line in output:
+            await message.channel.send(line)
+    if "america" in message.content.lower() or "amerika" in message.content.lower() or "united states" in message.content.lower():
+        output = """death to amerika"""
+        await message.channel.send(output)
+
+
 # @bot.event
 # async def on_message(message):
 #     await bot.process_commands(message)
 #     if message.author == bot.user:  # Stopping the bot from reading its on message
 #         return None
-#     output = """"""
 #     if "based" in message.content.lower():
+#         output = """"""
 #         await message.channel.send(output)
 
 bot.run(os.environ.get('BOT_TOKEN'))
