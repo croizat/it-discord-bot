@@ -1,21 +1,14 @@
 import discord
-import msgpack
-import pytz
 import asyncio
-import aiohttp
 
 from discord.ext import commands
 import Currency
 import LiveMarket
 
 from itertools import chain
-from datetime import datetime
-import time
 import sys
 import os
 from platform import python_version
-import configparser
-import json
 
 description = '''utility bot'''
 bot = commands.Bot(command_prefix='$', case_insensitive=True, description=description)
