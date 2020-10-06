@@ -68,7 +68,7 @@ async def Rates(ctx):
 
 @bot.command()
 async def Convert(ctx, *args):
-    if len(args) != 4:
+    if len(args) != 3:
         await ctx.send('fucked it up')
         return
 
