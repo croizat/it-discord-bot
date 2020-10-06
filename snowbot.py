@@ -4,7 +4,6 @@ import asyncio
 from discord.ext import commands
 import Currency
 import LiveMarket
-import splitter
 
 from itertools import chain
 import sys
@@ -109,15 +108,14 @@ async def on_message(message):
 
             And then you have these capitalists, those are real beauties! This is their new hoax- they take a piece of machine, a big beautiful shiny new means of production, and they buy it and y'know, they own it, it's a big beautiful shiny new machine, all the bells and whistles, bing bing bing, and then they have the workers- who are totally not being treated fairly in this country, folks, BELIEVE ME, totally exploited, and they have these workers-and they pay them a certain amount, could beee... $20 per hour, could be TEN, could be FIVE, could be TWELVE, they pay them a certain amount, okay, and with their labor they build the product.
             """,
-            """
+                  """
             And the owner of the machine, of the capital, "Capitalist" they turn around and sell the product at a yuge markup, they call it "profit." ok, so they call it profit! They don't sell it at the cost it took to make it, okay, so what do they do with this extra, you know what I call it? I call it surplus value. I call it surplus value, and do they share the surplus value with the people whose labor PROVIDED the value it took to make that product? I don't think so, folks.
 
             They stick in a bank and then they say "ohhhh I can't afford to pay you more!" Bad- BAD people. It's totally phony, folks. Raw deal, our proletariat are getting a raw deal. But not for long! We're gonna- and by the way it never occurs the workers to pool their resources and buy the big beautiful machine in order to share the profit that they created in the first place with their labour! And you know why? Because the capitalists pay the workers such a low wage they can't afford to then invest and pool their money and share in ownership... of the means of production! Can't do it! This is the biggest scam on the planet, folks! Boy, I've heard some real beauties but that one, WOW, that's a doozy. That's a real beauty. But we're gonna fix it, folks, we're gonna fix it, okay? and you know what the laborers are going to do? They're gonna WIN.
             """,
-            """
+                  """
             Folks, what we did in 1917–the Revolution I call it, with a capital R–it's never been done before. So many big beautiful red flags, you couldn't even–now that, folks, that's a flag we stand up for, we don't kneel for our terrific red flag–and you couldn't even see the Winter Palace, you know. You know the Mensheviks, you take a look at what they said, and they were a, uh, a failed party, and Renegade Kautsky, very nasty to me but that's okay, they said we couldn't do it! They said, "Oh, Vlad, the material conditions are bad, we have to have a bourgeois republic to develop the forces of production." You know what that means, right? Semi-feudal economy! Okay, you get Semi-Feudal, and I said, I told them we can't have Semi-Feudal. Well, look at where we are now, Julius. We are going to develop the forces of production so fast it'll make your head spin. We are going to do in a generation what it took them many, many years to do. BELIEVE ME.
             """]
-        output = splitter.split_into_sentences(output)
         for line in output:
             await message.channel.send(line)
 
