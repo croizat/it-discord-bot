@@ -119,22 +119,26 @@ async def on_message(message):
         for line in output:
             await message.channel.send(line)
     if "epstein" in message.content.lower():
-        output = """JOSH: Drake... where's Epstein?
-        DRAKE: He’s right in there. See, I put him on suicide watch.
-        [laugh track]
-        JOSH: You were supposed to monitor him constantly.
-        DRAKE: Dude, I'm gonna!
-        JOSH: Oh really?
-        DRAKE: Yes!
-        JOSH: So go check on him!
-        DRAKE: Okay, I will! tcch
-        [laugh track]
-        [rattles the door, peeps through the door, turns around]
-        DRAKE: ...I see the problem.
-        JOSH: Oh do ya?"""
-        await message.channel.send(output)
+        output = ["""JOSH: Drake... where's Epstein?""",
+        """DRAKE: He’s right in there. See, I put him on suicide watch.""",
+        """[laugh track]""",
+        """JOSH: You were supposed to monitor him constantly.""",
+        """DRAKE: Dude, I'm gonna!""",
+        """JOSH: Oh really?""",
+        """DRAKE: Yes!""",
+        """JOSH: So go check on him!""",
+        """DRAKE: Okay, I will! tcch""",
+        """[laugh track]""",
+        """[rattles the door, peeps through the door, turns around]""",
+        """DRAKE: ...I see the problem.""",
+        """JOSH: Oh do ya?"""]
+        for line in output:
+            await message.channel.send(line)
     if "drugs" in message.content.lower():
         output = """We should not be arrested for drugs if we are just vibing. If we are just vibing, it's our vibe, drugs a vibe so we should be able to vibe, it's part of our identity"""
+        await message.channel.send(output)
+    if "paris" in message.content.lower() or "venice" in message.content.lower():
+        output = """You know Paris? In English, it's pronounced "Paris" but everyone else pronounces it without the "s" sound, like the French do. But with Venezia, everyone pronouces it the English way – "Venice". Like The Merchant of Venice or Death in Venice. WHY, THOUGH!? WHY ISN'T THE TITLE DEATH IN VENEZIA!? ARE YOU FUCKING KIDDING ME!? IT TAKES PLACE IN ITALY, SO USE THE ITALIAN WORD, DAMMIT! THAT SHIT PISSES ME OFF! BUNCH OF DUMBASSES!"""
         await message.channel.send(output)
 # @bot.event
 # async def on_message(message):
