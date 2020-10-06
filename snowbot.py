@@ -49,10 +49,10 @@ async def on_ready():
     print('------')
 
 
-@bot.event
-async def on_message(message):
-    message.content = message.content.lower().replace(' ', '')
-    await bot.process_commands(message)
+# @bot.event
+# async def on_message(message):
+#     message.content = message.content.lower().replace(' ', '')
+#     await bot.process_commands(message)
 
 
 @bot.command()
