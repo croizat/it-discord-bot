@@ -27,7 +27,12 @@ async def on_ready():
     print('------')
 
 
+@bot.event
+async def on_connect():
+    print("Bot is connected to discord")
+
 # class BotClient(discord.Client):
+
 
 @bot.command()
 async def Rates(ctx):
