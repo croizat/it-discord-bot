@@ -28,26 +28,6 @@ async def on_ready():
 
 
 # class BotClient(discord.Client):
-from discord.ext import commands
-import Currency
-import LiveMarket
-
-description = '''utility bot'''
-bot = commands.Bot(command_prefix='$', case_insensitive=True, description=description)
-test_channel_id = '233452818860736512'  # bot testing channel
-reminder_channel_id = '753216226595176529'
-send_time = '21:30'  # 7:30am Sydney, +10 UTC
-send_time_test = '23:50'
-
-
-@bot.event
-async def on_ready():
-    print('Logged in as')
-    print(bot.user.name)
-    print(bot.user.id)
-    print(f'Running python version {python_version()}')
-    print('------')
-
 
 @bot.command()
 async def Rates(ctx):
@@ -68,23 +48,23 @@ async def Rates(ctx):
 
 @bot.command()
 async def Convert(ctx, *args):
-    if len(args) != 3:
-        await ctx.send('fucked it up')
+    if len(args) != 4:
+        await ctx.send('Invalid number of arguments')
         return
 
     fromCurrency = args[1].upper()
-    toCurrency = args[2].upper()
+    toCurrency = args[3].upper()
     amount = args[0]
 
     if not amount.isnumeric():
-        await ctx.send('do you think that\'s a fucking number?')
+        await ctx.send('Amount must be numeric')
         return
 
     amount = float(amount)
     currency = Currency.Utility()
 
     if not currency.exist(fromCurrency.upper()) or not currency.exist(toCurrency.upper()):
-        await ctx.send('lol')
+        await ctx.send('One or more currency is not supported')
         return
 
     market = LiveMarket.API()
