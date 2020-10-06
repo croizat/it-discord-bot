@@ -1,3 +1,40 @@
+import discord
+import msgpack
+import pytz
+import asyncio
+import aiohttp
+
+from discord.ext import commands
+import Currency
+import LiveMarket
+
+from itertools import chain
+from datetime import datetime
+import time
+import sys
+import os
+from platform import python_version
+import configparser
+import json
+
+description = '''utility bot'''
+bot = commands.Bot(command_prefix='$', case_insensitive=True, description=description)
+test_channel_id = '233452818860736512'  # bot testing channel
+reminder_channel_id = '753216226595176529'
+send_time = '21:30'  # 7:30am Sydney, +10 UTC
+send_time_test = '23:50'
+
+
+@bot.event
+async def on_ready():
+    print('Logged in as')
+    print(bot.user.name)
+    print(bot.user.id)
+    print(f'Running python version {python_version()}')
+    print('------')
+
+
+# class BotClient(discord.Client):
 from discord.ext import commands
 import Currency
 import LiveMarket
@@ -19,7 +56,6 @@ async def on_ready():
     print('------')
 
 
-
 @bot.command()
 async def Rates(ctx):
     market = LiveMarket.API()
@@ -35,6 +71,7 @@ async def Rates(ctx):
         parsedRates += '%s %s[%s] - %.4f \n' % (flag, fullname, key, rates[key])
 
     await ctx.send(parsedRates)
+
 
 @bot.command()
 async def Convert(ctx, *args):
@@ -62,5 +99,6 @@ async def Convert(ctx, *args):
     if toCurrency in rates:
         rate = float(rates[toCurrency])
         await ctx.send('%.2f %s to %s = %.2f' % (amount, fromCurrency, toCurrency, rate * amount))
+
 
 bot.run(os.environ.get('BOT_TOKEN'))
