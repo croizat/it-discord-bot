@@ -73,7 +73,7 @@ async def Convert(ctx, *args):
         return
 
     fromCurrency = args[1].upper()
-    toCurrency = args[3].upper()
+    toCurrency = args[2].upper()
     amount = args[0]
 
     if not amount.isnumeric():
