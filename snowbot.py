@@ -97,6 +97,7 @@ async def alpha(ctx, *args):
 
 @bot.event
 async def on_message(message):
+    await bot.process_commands(message)
     if message.author == bot.user:  # Stopping the bot from reading its on message
         return None
 
