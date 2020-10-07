@@ -46,9 +46,15 @@ async def refresh_members(ctx):
 
 
 @bot.command()
-async def gmc(ctx, message):
+async def gmc(ctx):
     member_count = len([m for m in ctx.guild.members if not m.bot])
-    await message.channel.send(member_count)
+    await ctx.send(f'members: {member_count}')
+
+
+@bot.command()
+async def tgmc(ctx):
+    member_count = len(ctx.guild.members)
+    await ctx.send(f'members: {member_count}')
 
 
 @bot.event
