@@ -86,7 +86,10 @@ class Shitposts(commands.Cog):
             output = """death to amerika"""
             await message.channel.send(output)
         if "dprk" in message.content.lower() or "north korea" in message.content.lower():
-            output = """juche gang"""
+            output = """juche gang juche gang juche gang"""
+            await message.channel.send(output)
+        if "ussr" in message.content.lower():
+            output = """> ussr\n19 August 1991 worst day of my life"""
             await message.channel.send(output)
 
 
