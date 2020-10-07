@@ -30,7 +30,7 @@ def getForecast(arg):
     Access weather api
     """
     url = 'http://api.openweathermap.org/data/2.5/weather?q=' + \
-        arg + '&appid=842901232dd35d5226f8e52f0d6fed1e&units=imperial'
+        arg + '&appid=842901232dd35d5226f8e52f0d6fed1e&units=metric'
     res = requests.get(url)
 
     data = res.json()
@@ -39,7 +39,7 @@ def getForecast(arg):
     Fill in the fields in the weather object with data from the api
     """
     forecast.name = data['name']
-    forecast.temperature = str(data['main']['temp']) + '°'
+    forecast.temperature = str(data['main']['temp']) + '°C'
     forecast.description = data['weather'][0]['description']
 
     return forecast
