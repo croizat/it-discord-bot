@@ -7,23 +7,12 @@ import sys
 import os
 from platform import python_version
 
-
-def config_load():
-    with codecs.open('data/config.json', 'r', encoding='utf-8-sig') as doc:
-        #  Please make sure encoding is correct, especially after editing the config file
-        return json.load(doc)
-
-
-config = config_load()
-
 description = '''random utilities and shitposting bot'''
 bot = commands.Bot(command_prefix='$', case_insensitive=True, description=description)
 
 
 @bot.event
 async def on_ready():
-    config = config_load()
-    await database_setup()
     print('Logged in as')
     print(bot.user.name)
     print(bot.user.id)
