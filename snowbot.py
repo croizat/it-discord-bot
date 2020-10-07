@@ -7,6 +7,7 @@ import sys
 import os
 from platform import python_version
 
+intents = discord.Intents(messages=True, members=True, guild_messages=True)
 description = '''random utilities and shitposting bot'''
 bot = commands.Bot(command_prefix='$', case_insensitive=True, description=description)
 
