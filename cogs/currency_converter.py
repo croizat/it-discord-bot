@@ -10,7 +10,7 @@ class Converter(commands.Cog):
         self._last_member = None
 
     @commands.command()
-    async def Rates(ctx):
+    async def Rates(self, ctx):
         market = LiveMarket.API()
         rates = market.request('USD')
 
@@ -26,7 +26,7 @@ class Converter(commands.Cog):
         await ctx.send(parsedRates)
 
     @commands.command()
-    async def Convert(ctx, *args):
+    async def Convert(self, ctx, *args):
         if len(args) != 3:
             await ctx.send('[amount] [from_currency] [to_currency]')
             return

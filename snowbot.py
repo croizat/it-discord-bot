@@ -9,10 +9,6 @@ from platform import python_version
 
 description = '''utility bot'''
 bot = commands.Bot(command_prefix='$', case_insensitive=True, description=description)
-test_channel_id = '233452818860736512'  # bot testing channel
-reminder_channel_id = '753216226595176529'
-send_time = '21:30'  # 7:30am Sydney, +10 UTC
-send_time_test = '23:50'
 
 
 @bot.event
@@ -22,7 +18,7 @@ async def on_ready():
     print(bot.user.id)
     print(f'Running python version {python_version()}')
     print('------')
-    await bot.change_presence(activity=discord.Game(name="coping"))
+    await bot.change_presence(activity=discord.CustomActivity(name="coping"))
 
 
 @bot.event
@@ -36,6 +32,8 @@ for filename in os.listdir('./cogs'):
         print("[<3] Loaded ", filename)
 
 # error handling whenever the command is not found
+
+
 @bot.event
 async def on_error(event, *args, **kwargs):
     print("[!] Error Caused by:  ", event)
