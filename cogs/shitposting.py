@@ -84,6 +84,9 @@ class Shitposts(commands.Cog):
         if "dad" in message.content.lower():
             output = """> dad\ndaddy*"""
             await message.channel.send(output)
+        if "airsoft" in message.content.lower():
+            output = """Airsoft is so fucking dumb. Oh you think you’re cool because you play with toy guns? Go fuck yourself. No, you’re not a Navy SEAL: you’re a pathetic excuse for an American cosplaying as one, you piece of shit. What’s that? You have the audacity to call airsoft a sport? Fuck you. It’s a past time for sweaty little nerds who fantasize war. Show some fucking respect and grow a pair of balls by enlisting, you fat fuck. Oh you modified your airsoft gun? Cool. I couldn’t give any less of a fuck. I don’t really care what my gun looks like when I’m fighting for my god damn life in Afghanistan. Next time you’re at the arena I hope you consider how truly fucking stupid of a hobby airsoft really is."""
+            await message.channel.send(output)
 
 
 def setup(bot):

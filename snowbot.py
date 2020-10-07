@@ -58,6 +58,12 @@ async def tgmc(ctx):
     await ctx.send(f'members: {member_count}')
 
 
+@bot.command()
+async def gam(ctx):
+    member_count = len(ctx.guild.members)
+    await ctx.send(f'members: {member_count}')
+
+
 @bot.event
 async def on_connect():
     print("Bot is connected to discord")
