@@ -1,9 +1,6 @@
 import discord
 import asyncio
-
 from discord.ext import commands
-import Currency
-import LiveMarket
 
 from itertools import chain
 import sys
@@ -25,58 +22,24 @@ async def on_ready():
     print(bot.user.id)
     print(f'Running python version {python_version()}')
     print('------')
+    await bot.change_presence(activity=discord.Game(name="coping"))
 
 
 @bot.event
 async def on_connect():
     print("Bot is connected to discord")
 
-# class BotClient(discord.Client):
+# import cogs
+for filename in os.listdir('./cogs'):
+    if filename.endswith('.py'):
+        bot.load_extension(f'cogs.{filename[:-3]}')
+        print("[<3] Loaded ", filename)
 
-
-@bot.command()
-async def Rates(ctx):
-    market = LiveMarket.API()
-    rates = market.request('USD')
-
-    parsedRates = str()
-    currency = Currency.Utility()
-
-    parsedRates += '%s %s is the base currency\n' % (currency.getFlagEmoji('USD'), currency.getFullName('USD'))
-    for key in rates:
-        flag = currency.getFlagEmoji(key)
-        fullname = currency.getFullName(key)
-        parsedRates += '%s %s[%s] - %.4f \n' % (flag, fullname, key, rates[key])
-
-    await ctx.send(parsedRates)
-
-
-@bot.command()
-async def Convert(ctx, *args):
-    if len(args) != 3:
-        await ctx.send('[amount] [from_currency] [to_currency]')
-        return
-
-    fromCurrency = args[1].upper()
-    toCurrency = args[2].upper()
-    amount = args[0]
-
-    if not amount.isnumeric():
-        await ctx.send("""use numbers, that'd help""")
-        return
-
-    amount = float(amount)
-    currency = Currency.Utility()
-
-    if not currency.exist(fromCurrency.upper()) or not currency.exist(toCurrency.upper()):
-        await ctx.send('lol')
-        return
-
-    market = LiveMarket.API()
-    rates = market.request(fromCurrency)
-    if toCurrency in rates:
-        rate = float(rates[toCurrency])
-        await ctx.send('%.2f %s to %s = %.2f' % (amount, fromCurrency, toCurrency, rate * amount))
+# error handling whenever the command is not found
+@bot.event
+async def on_error(event, *args, **kwargs):
+    print("[!] Error Caused by:  ", event)
+    print(args, kwargs)
 
 
 @bot.event
