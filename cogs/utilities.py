@@ -9,7 +9,7 @@ class Utilities(commands.Cog):
         self._last_member = None
 
     @commands.command()
-    async def start_member_count(self, ctx, channel, *):
+    async def start_member_count(self, ctx, channel):
         start_time = time.time()
         every_x_seconds = 3600.0
         while True:
