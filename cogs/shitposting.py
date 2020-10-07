@@ -3,12 +3,12 @@ from discord.ext import commands
 
 
 class shitposts(commands.Cog):
-    @commands.Cog.listener()
-    async def on_message(message):
-        def __init__(self, bot):
-            self.bot = bot
-            self._last_member = None
+    def __init__(self, bot):
+        self.bot = bot
+        self._last_member = None
 
+    @commands.Cog.listener()
+    async def on_message(self, message):
         await bot.process_commands(message)
         if message.author == bot.user:
             return None
