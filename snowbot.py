@@ -23,26 +23,23 @@ async def on_ready():
 
 @bot.event
 async def on_member_join(member):
-    member_counts = len([m for m in ctx.guild.members if not m.bot])
-    guild = member.guild
-    channel = discord.utils.get(guild.channels, id=763270876606234644)
-    await channel.edit(name=f'Members: {guild.member_count}')
+    member_count = len([m for m in ctx.guild.members if not m.bot])
+    channel = discord.utils.get(ctx.guild.channels, id=763270876606234644)
+    await channel.edit(name=f'Members: {member_count}')
 
 
 @bot.event
 async def on_member_remove(member):
-    member_counts = len([m for m in ctx.guild.members if not m.bot])
-    guild = member.guild
-    channel = discord.utils.get(guild.channels, id=763270876606234644)
-    await channel.edit(name=f'Members: {guild.member_count}')
+    member_count = len([m for m in ctx.guild.members if not m.bot])
+    channel = discord.utils.get(ctx.guild.channels, id=763270876606234644)
+    await channel.edit(name=f'Members: {member_count}')
 
 
 @bot.command()
 async def refresh_members(ctx):
-    member_counts = len([m for m in ctx.guild.members if not m.bot])
-    guild = ctx.guild
-    channel = discord.utils.get(guild.channels, id=763270876606234644)
-    await channel.edit(name=f'Members: {guild.member_count}')
+    member_count = len([m for m in ctx.guild.members if not m.bot])
+    channel = discord.utils.get(ctx.guild.channels, id=763270876606234644)
+    await channel.edit(name=f'Members: {member_count}')
 
 
 @bot.event
