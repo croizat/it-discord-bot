@@ -4,6 +4,10 @@ from discord.ext import commands
 
 @bot.event
 async def on_message(message):
+  def __init__(self, bot):
+    self.bot = bot
+    self._last_member = None
+
   await bot.process_commands(message)
   if message.author == bot.user:
     return None
