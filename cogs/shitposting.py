@@ -2,14 +2,14 @@ import discord
 from discord.ext import commands
 
 
-class shitposts(commands.Cog):
+class Shitposts(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self._last_member = None
 
     @commands.Cog.listener()
     async def on_message(self, message):
-        await bot.process_commands(message)
+        await self.bot.process_commands(message)
         if message.author == bot.user:
             return None
         if "the senate" in message.content.lower():
@@ -86,7 +86,10 @@ class shitposts(commands.Cog):
         if "america" in message.content.lower() or "amerika" in message.content.lower() or "united states" in message.content.lower():
             output = """death to amerika"""
             await message.channel.send(output)
+        if "dprk" in message.content.lower() or "north korea" in message.content.lower():
+            output = """juche gang"""
+            await message.channel.send(output)
 
 
 def setup(bot):
-    bot.add_cog(shitposts(bot))
+    bot.add_cog(Shitposts(bot))
