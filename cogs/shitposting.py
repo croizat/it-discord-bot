@@ -9,7 +9,7 @@ class Shitposts(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
-        if message.author == bot.user:
+        if message.author == self.bot.user:
             return None
         print(message)
         if "cat" in message.content:
