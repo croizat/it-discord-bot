@@ -40,7 +40,7 @@ async def on_member_remove(member):
 @bot.command()
 async def refresh_members(ctx):
     member_counts = len([m for m in ctx.guild.members if not m.bot])
-    guild = member.guild
+    guild = ctx.guild
     channel = discord.utils.get(guild.channels, id=233454842499170304)
     await channel.edit(name=f'Members: {guild.member_count}')
 
