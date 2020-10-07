@@ -1,3 +1,7 @@
+import discord
+from discord.ext import commands
+
+
 def is_admin():
     async def predicate(ctx):
         portables = ctx.bot.get_guild(config['portablesServer'])
