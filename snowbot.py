@@ -19,6 +19,9 @@ async def on_ready():
     print(f'Running python version {python_version()}')
     print('------')
     await bot.change_presence(activity=discord.CustomActivity(name="coping"))
+    c_total= bot.get_channel(763270876606234644)
+    member_count = len([m for m in ctx.guild.members if not m.bot])
+    c_total.edit(name=f'Members: {member_count}')
 
 
 @bot.event
