@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from utilities import is_admin
 
 
 class Notifications(commands.Cog):
