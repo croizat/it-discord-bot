@@ -7,7 +7,7 @@ import sys
 import os
 from platform import python_version
 
-import cogs.utilities
+import utilities
 
 description = '''random utilities and shitposting bot'''
 bot = commands.Bot(command_prefix='$', case_insensitive=True, description=description)
