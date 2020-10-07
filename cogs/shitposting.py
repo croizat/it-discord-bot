@@ -15,19 +15,19 @@ class Shitposts(commands.Cog):
         if re.search(r'\bthe senate\b', message.content.lower()):
             output = "**Did you ever hear the tragedy of Darth Plagueis the Wise? I thought not. It's not a story the Jedi would tell you. It's a Sith legend. Darth Plagueis was a Dark Lord of the Sith, so powerful and so wise he could use the Force to influence the midichlorians to create life... He had such a knowledge of the dark side that he could even keep the ones he cared about from dying. The dark side of the Force is a pathway to many abilities some consider to be unnatural. He became so powerful... the only thing he was afraid of was losing his power, which eventually, of course, he did. Unfortunately, he taught his apprentice everything he knew, then his apprentice killed him in his sleep. Ironic, he could save others from death, but not himself.** \n\nhttps://imgur.com/8KPtRjS.png"
             await message.channel.send(output)
-        if re.search(r'\balpha\b', in message.content.lower()):
+        if re.search(r'\balpha\b', message.content.lower()):
             output = "I am the ultimate alpha male. I only climax for 1 of 2 reasons. I either climax for the purpose of reproduction with a beautiful woman (because that's the only kind of woman worthy of me) or I climax for the purpose of free protein. I need immense protein to maintain my ultimate alpha male body, and 4-5 cum loads a day is sufficient for me. It's not gay if it's mine, but I wouldn't expect you pathetic beta males to understand. I bet you waste your seed into napkins, tissue, and tube socks. How sad, wasting all that protein. Wasting all those offspring. Its optimal for me to masturbate with my legs over my head so I can practice stretching before my workout while I obtain my protein. All the gym betas in the locker room just look away in disgust, but again, I wouldn't be offended by an asshole who only focus on vanity muscles. You beta losers better start acting like real men."
             await message.channel.send(output)
-        if re.search(r'\bbased\b', in message.content.lower()):
+        if re.search(r'\bbased\b', message.content.lower()):
             output = "Based? Based on what? In your dick? Please shut the fuck up and use words properly you fuckin troglodyte, do you think God gave us a freedom of speech just to spew random words that have no meaning that doesn't even correllate to the topic of the conversation? Like please you always complain about why no one talks to you or no one expresses their opinions on you because you're always spewing random shit like poggers based cringe and when you try to explain what it is and you just say that it's funny like what? What the fuck is funny about that do you think you'll just become a stand-up comedian that will get a standing ovation just because you said \"cum\" in the stage? HELL NO YOU FUCKIN IDIOT, so please shut the fuck up and use words properly you dumb bitch"
             await message.channel.send(output)
-        if re.search(r'\bmeow\b', in message.content.lower()):
+        if re.search(r'\bmeow\b', message.content.lower()):
             output = """leash and treated like a domestic animal then that’s called a fetish, not “quirky” or “cute”. What part of you seriously thinks that any part of acting like a feline establishes a reputation of appreciation? Is it your lack of any defining aspect of personality that urges you to resort to shitty representations of cats to create an illusion of meaning in your worthless life? Wearing “cat ears” in the shape of headbands further notes the complete absence of human attribution to your false sense of personality, such as intelligence or charisma in any form or shape. Where do you think this mindset’s gonna lead you? You think you’re funny, random, quirky even? What makes you think that acting like a fucking cat will make a goddamn hyena laugh? I, personally, feel extremely sympathetic towards you as your only escape from the worthless thing you call your existence is to pretend to be an animal. But it’s not a worthy choice to assert this horrifying fact as a dominant trait, mainly because personality traits require an initial personality to lay their foundation on. You’re not worthy of anybody’s time, so go fuck off, “cat-girl”."""
             await message.channel.send(output)
-        if re.search(r'\bweed\b', in message.content.lower()):
+        if re.search(r'\bweed\b', message.content.lower()):
             output = """h-hewwo...owunce of weed pwease >///< arigato... dealer-kun puts weedie-chan in bong and inhales waaah!! (╯✧▽✧)╯ daisuki cannabis desu~! (^ ω ^ )uwaaa! weedie-chan i feel so kimochi!!(〃°ω°〃)"""
             await message.channel.send(output)
-        if re.search(r'\bgamer\b', in message.content.lower()):
+        if re.search(r'\bgamer\b', message.content.lower()):
             output = """So the other day, I was playing rainbow six siege, and I heard one of my teammates make a callout in the voice chat. It was a real life gamer girl. God, I kid you not, I just stopped playing and pulled my dick out. “fuck, Fuck!” I was yelling in voice chat. I just wanted to hear her voice again. “Please,” I moaned. But she left the lobby. I was crying and covered in my own cum, but I remembered that I could find recent teammates in the ubiplay friends tab. I frantically closed down siege and opened the tab, to find out she had TTV IN HER NAME!!! She was streaming, and only had 100 viewers!!! The competition was low, so I made the first move and donated my months rent to her. I was already about to pre. She read my donation in the chat. God this is the happiest I’ve been in a long time. I did a little research, and found out where she goes to school, but I am a little nervous to talk to her in person, and need support. Any advice before my Uber gets to her middle school?"""
             await message.channel.send(output)
         if re.search(r'\bbourgeoisie|bourgeois\b', message.content.lower()):
@@ -46,22 +46,22 @@ class Shitposts(commands.Cog):
                       """But if you want to add some pulled pork and take a picture of it, make your own subreddit entitled "melts" because that is not a fucking grilled cheese. I'm not a religious man nor am I anything close to a culinary expert. But as a bland white mid-western male I am honestly the most passionate person when it comes to grilled cheese and mac & cheese. All of you foodies stay the hell away from our grilled cheeses and stop associating your sandwich melts with them. Yet again, it is utter blasphemy and it rocks me to the core of my pale being. Shit, I stopped lurking after 3 years and made this account for the sole purpose of posting this. I've seen post after post of peoples "grilled cheeses" all over reddit and it's been driving me insane. The moment i saw this subreddit this morning I finally snapped. Hell, I may even start my own subreddit just because I know this one exists now. You god damn heretics. Respect the grilled cheese and stop changing it into whatever you like and love it for it what it is. Or make your damn melt sandwich and call it for what it is. A melt."""]
             for line in output:
                 await message.channel.send(line)
-        if re.search(r'\bepstein\b' in message.content.lower()):
+        if re.search(r'\bepstein\b', message.content.lower()):
             output = "JOSH: Drake... where's Epstein?\nDRAKE: He’s right in there. See, I put him on suicide watch.\n[laugh track]\nJOSH: You were supposed to monitor him constantly.\nDRAKE: Dude, I'm gonna!\nJOSH: Oh really?\nDRAKE: Yes!\nJOSH: So go check on him!\nDRAKE: Okay, I will! tcch\n[laugh track]\n[rattles the door, peeps through the door, turns around]\nDRAKE: ...I see the problem.\nJOSH: Oh do ya?"
             await message.channel.send(output)
-        if re.search(r'\bdrugs\b' in message.content.lower()):
+        if re.search(r'\bdrugs\b', message.content.lower()):
             output = """We should not be arrested for drugs if we are just vibing. If we are just vibing, it's our vibe, drugs a vibe so we should be able to vibe, it's part of our identity"""
             await message.channel.send(output)
-        if re.search(r'\bparis\b' in message.content.lower()) or "venice" in message.content.lower():
+        if re.search(r'\bparis|venice\b', message.content.lower()):
             output = """You know Paris? In English, it's pronounced "Paris" but everyone else pronounces it without the "s" sound, like the French do. But with Venezia, everyone pronouces it the English way – "Venice". Like The Merchant of Venice or Death in Venice. WHY, THOUGH!? WHY ISN'T THE TITLE DEATH IN VENEZIA!? ARE YOU FUCKING KIDDING ME!? IT TAKES PLACE IN ITALY, SO USE THE ITALIAN WORD, DAMMIT! THAT SHIT PISSES ME OFF! BUNCH OF DUMBASSES!"""
             await message.channel.send(output)
-        if re.search(r'\battack helicopter\b' in message.content).lower():
+        if re.search(r'\battack helicopter\b', message.content.lower()):
             output = """I sexually Identify as the "I sexually identify as an attack helicopter" joke. Ever since I was a child, I've dreamed of flippantly dismissing any concepts or discussions regarding gender that don't fit in with what I learned in 8th grade bio. People say to me that this joke hasn't been funny since 2014 and please at least come up with a new one, but I don't care, I'm hilarious. I'm having a plastic surgeon install Ctrl, C, and V keys on my body. From now on I want you guys to call me "epic kek dank meme tr***ies owned with facts and logic" and respect my right to shit up social media. If you can't accept me you're a memeophobe and need to check your ability-to-critically-think privilege. Thank you for being so understanding."""
             await message.channel.send(output)
-        if re.search(r'\bkfc\b' in message.content.lower()):
+        if re.search(r'\bkfc\b', message.content.lower()):
             output = """One time I was asked if I was a legs man or a breasts man, I said I was into shaved pussy and anal and now I’m “banned from KFC” and “a possible sex offender”"""
             await message.channel.send(output)
-        if re.search(r'\bcat\b' in message.content.lower()):
+        if re.search(r'\bcat\b', message.content.lower()):
             output = """cat"""
             await message.channel.send(output)
         if re.search(r'\bloli\b', message.content.lower()):
