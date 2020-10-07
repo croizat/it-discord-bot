@@ -19,9 +19,30 @@ async def on_ready():
     print(f'Running python version {python_version()}')
     print('------')
     await bot.change_presence(activity=discord.CustomActivity(name="coping"))
-    c_total = bot.get_channel(763270876606234644)
-    member_count = len([m for m in ctx.guild.members if not m.bot])
-    await c_total.edit(name=f'Members: {member_count}')
+
+
+@bot.event
+async def on_member_join(member):
+    member_counts = len([m for m in ctx.guild.members if not m.bot])
+    guild = member.guild
+    channel = discord.utils.get(guild.channels, id=233454842499170304)
+    await channel.edit(name=f'Members: {guild.member_count}')
+
+
+@bot.event
+async def on_member_remove(member):
+    member_counts = len([m for m in ctx.guild.members if not m.bot])
+    guild = member.guild
+    channel = discord.utils.get(guild.channels, id=233454842499170304)
+    await channel.edit(name=f'Members: {guild.member_count}')
+
+
+@bot.command()
+async def refresh_members(ctx):
+    member_counts = len([m for m in ctx.guild.members if not m.bot])
+    guild = member.guild
+    channel = discord.utils.get(guild.channels, id=233454842499170304)
+    await channel.edit(name=f'Members: {guild.member_count}')
 
 
 @bot.event
