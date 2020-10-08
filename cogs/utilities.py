@@ -8,7 +8,7 @@ class Utilities(commands.Cog):
         self.bot = bot
         self._last_member = None
 
-     @commands.command()
+    @commands.command()
     async def roll(ctx, dice: str):
         """Rolls a dice in NdN format."""
         try:
