@@ -8,6 +8,7 @@ class Utilities(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self._last_member = None
+        self.truncate = bot.truncate
 
     @commands.command()
     async def roll(ctx, dice: str):
@@ -19,12 +20,12 @@ class Utilities(commands.Cog):
             return
 
         result = ', '.join(str(random.randint(1, limit)) for r in range(rolls))
-        await ctx.channel.send(result)
+        await ctx.send(result)
 
     @commands.command()
     async def choose(ctx, *choices: str):
         """Chooses between multiple choices."""
-        await ctx.channel.send(random.choice(choices))
+        await ctx.send(random.choice(choices))
 
     @commands.command()
     async def aesthetify(self, ctx, *, text: str):
