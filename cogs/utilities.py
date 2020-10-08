@@ -10,7 +10,7 @@ class Utilities(commands.Cog):
         self._last_member = None
 
     @commands.command()
-    async def hi(ctx):
+    async def hi(self, ctx):
         await ctx.send('hi')
     # @commands.command()
     # async def roll(ctx, dice: str):
