@@ -20,7 +20,7 @@ class Utilities(commands.Cog):
         result = ', '.join(str(random.randint(1, limit)) for r in range(rolls))
         await ctx.send(result)
 
-     @commands.command()
+    @commands.command()
     async def choose(ctx, *choices: str):
         """Chooses between multiple choices."""
         await ctx.send(random.choice(choices))
