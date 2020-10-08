@@ -10,9 +10,8 @@ class Utilities(commands.Cog):
         self._last_member = None
 
     @commands.command()
-    async def gmc(ctx):
-        member_count = len([m for m in ctx.guild.members if not m.bot])
-        await ctx.send(f'members: {member_count}')
+    async def hi(ctx):
+        await ctx.send('hi')
     # @commands.command()
     # async def roll(ctx, dice: str):
     #     """Rolls a dice in NdN format."""
