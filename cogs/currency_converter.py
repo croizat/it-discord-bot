@@ -27,7 +27,7 @@ class Converter(commands.Cog):
 
     @commands.command()
     async def Convert(self, ctx, *args):
-        if 3 <= len(args) <= 4:
+        if len(args) not in range(3, 5):
             await ctx.send('[amount] [from_currency] [to_currency]')
             return
 
