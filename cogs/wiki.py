@@ -12,7 +12,7 @@ class Wiki(commands.Cog):
     async def wiki(self, ctx, article):
         try:
             embed = discord.Embed(title=wikipedia.page(article).title, url=wikipedia.page(article).url, description = wikipedia.summary(article))
-            await self.bot.say(embed = embed)
+            await ctx.send(embed = embed)
         except:
             await ctx.send(wikipedia.search(article))
 
