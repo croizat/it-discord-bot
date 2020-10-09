@@ -12,6 +12,10 @@ class Utilities(commands.Cog):
     @commands.command()
     async def hi(self, ctx):
         await ctx.send('hi')
+
+    @commands.command()
+    async def volpol(self, ctx):
+        await ctx.send('The VOLCEL POLICE are on the scene! PLEASE KEEP YOUR VITAL ESSENCES TO YOURSELVES AT ALL TIMES.\nنحن شرطة VolCel. بناءا على تعليمات الهيئة لترويج لألعاب الفيديو و النهي عن الجنس نرجوا الإبتعاد عن أي أفكار جنسية و الحفاظ على حيواناتكم المنويَّة حتى يوم الحساب. اتقوا الله، إنك لا تراه لكنه يراك.\nhttps://i.imgur.com/P5UMuVz.jpg')
     # @commands.command()
     # async def roll(ctx, dice: str):
     #     """Rolls a dice in NdN format."""
