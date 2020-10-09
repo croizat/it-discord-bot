@@ -27,13 +27,13 @@ class Converter(commands.Cog):
 
     @commands.command()
     async def Convert(self, ctx, *args):
-        if len(args) != 3:
+        if 3 <= len(args) <= 4:
             await ctx.send('[amount] [from_currency] [to_currency]')
             return
 
         fromCurrency = args[1].upper()
         toCurrency = args[2].upper()
-        amount = args[0]
+        amount = args[-1]
 
         if not amount.isnumeric():
             await ctx.send("""use numbers, that'd help""")
