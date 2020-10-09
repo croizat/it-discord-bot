@@ -11,11 +11,10 @@ class Wiki(commands.Cog):
     @commands.command()
     async def wiki(self, ctx, article):
         try:
-            embed = discord.Embed()
-            embed.add_field(title=article.title(), description=wikipedia.summary(article))
-            await channel.send(embed=embed)
+            embed = discord.Embed(title=wikipedia.page(article).title, url=wikipedia.page(article).url, description = wikipedia.summary(article))
+            await self.bot.say(embed = embed)
         except:
-            await channel.send(wikipedia.search(article))
+            await ctx.send(wikipedia.search(article))
 
 
 def setup(bot):
