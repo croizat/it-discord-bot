@@ -11,10 +11,22 @@ class Wiki(commands.Cog):
     @commands.command()
     async def wiki(self, ctx, article):
         try:
-            embed = discord.Embed(title=wikipedia.page(article).title, url=wikipedia.page(article).url, description = wikipedia.summary(article))
+            page = wikipedia.page(article)
+        except wikipedia.DisambiguationError:
+            disambiguation = True
+        except Exception:
+            lookup = False
+
+        if page is None and lookup and not disambiguation:
+            page = wikipedia.suggest(article)
+            await ctx.send(f"Couldn't find {article}. Is {page} right?")
+        elif not lookup:
+            await ctx.send("OOPSIE WOOPSIE!! Uwu We made a fucky wucky!! A wittle fucko boingo! The code monkeys at our headquarters are working VEWY HAWD to fix this!")
+        else:
+            images = page.images
+            embed = discord.Embed(title=wikipedia.page(article).title, url=page.url, description=wikipedia.summary(article)) if len(
+                images) == 0 else discord.Embed(title=wikipedia.page(article).title, url=page.url, description=wikipedia.summary(article), image=images[0])
             await ctx.send(embed = embed)
-        except:
-            await ctx.send(wikipedia.search(article))
 
 
 def setup(bot):
