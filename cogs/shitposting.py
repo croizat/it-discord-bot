@@ -17,7 +17,7 @@ class Shitposts(commands.Cog):
             await message.channel.send(output)
         if re.search(r'\balpha\b', message.content.lower()):
             output = "I am the ultimate alpha male. I only climax for 1 of 2 reasons. I either climax for the purpose of reproduction with a beautiful woman (because that's the only kind of woman worthy of me) or I climax for the purpose of free protein. I need immense protein to maintain my ultimate alpha male body, and 4-5 cum loads a day is sufficient for me. It's not gay if it's mine, but I wouldn't expect you pathetic beta males to understand. I bet you waste your seed into napkins, tissue, and tube socks. How sad, wasting all that protein. Wasting all those offspring. Its optimal for me to masturbate with my legs over my head so I can practice stretching before my workout while I obtain my protein. All the gym betas in the locker room just look away in disgust, but again, I wouldn't be offended by an asshole who only focus on vanity muscles. You beta losers better start acting like real men."
-            await message.channel.sendit(output)
+            await message.channel.send(output)
         if re.search(r'^[based_]+$', message.content.lower()):
             output = "Based? Based on what? In your dick? Please shut the fuck up and use words properly you fuckin troglodyte, do you think God gave us a freedom of speech just to spew random words that have no meaning that doesn't even correllate to the topic of the conversation? Like please you always complain about why no one talks to you or no one expresses their opinions on you because you're always spewing random shit like poggers based cringe and when you try to explain what it is and you just say that it's funny like what? What the fuck is funny about that do you think you'll just become a stand-up comedian that will get a standing ovation just because you said \"cum\" in the stage? HELL NO YOU FUCKIN IDIOT, so please shut the fuck up and use words properly you dumb bitch"
             await message.channel.send(output)
@@ -90,6 +90,9 @@ class Shitposts(commands.Cog):
             await message.channel.send(output)
         if re.search(r'\bcracker|cracka\b', message.content.lower()):
             output = """Please, they are very fragile, call them Porcelain Americans instead."""
+            await message.channel.send(output)
+        if re.search(r'\bvolcel\spolice\b', message.content.lower()):
+            output = """The VOLCEL POLICE are on the scene! PLEASE KEEP YOUR VITAL ESSENCES TO YOURSELVES AT ALL TIMES.\nنحن شرطة VolCel. بناءا على تعليمات الهيئة لترويج لألعاب الفيديو و النهي عن الجنس نرجوا الإبتعاد عن أي أفكار جنسية و الحفاظ على حيواناتكم المنويَّة حتى يوم الحساب. اتقوا الله، إنك لا تراه لكنه يراك.\nhttps://i.imgur.com/P5UMuVz.jpg"""
             await message.channel.send(output)
 
 
