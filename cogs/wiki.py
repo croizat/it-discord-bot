@@ -10,6 +10,9 @@ class Wiki(commands.Cog):
 
     @commands.command()
     async def wiki(self, ctx, article):
+        page = None
+        disambiguation = False
+        lookup = True
         try:
             page = wikipedia.page(article)
         except wikipedia.DisambiguationError:
