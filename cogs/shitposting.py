@@ -93,9 +93,9 @@ class Shitposts(commands.Cog):
             await message.channel.send(output)
         if re.search(r'\bvolcel\spolice\b', message.content.lower()):
             output = """The VOLCEL POLICE are on the scene! PLEASE KEEP YOUR VITAL ESSENCES TO YOURSELVES AT ALL TIMES.\nنحن شرطة VolCel. بناءا على تعليمات الهيئة لترويج لألعاب الفيديو و النهي عن الجنس نرجوا الإبتعاد عن أي أفكار جنسية و الحفاظ على حيواناتكم المنويَّة حتى يوم الحساب. اتقوا الله، إنك لا تراه لكنه يراك."""
-            embed = discord.Embed()
-            embed.set_image(url="https://i.imgur.com/P5UMuVz.jpg")
-            await message.channel.send(output + embed)
+            picture = discord.Embed()
+            picture.set_image(url="https://i.imgur.com/P5UMuVz.jpg")
+            await message.channel.send(content=output, embed=picture)
 
 
 def setup(bot):
