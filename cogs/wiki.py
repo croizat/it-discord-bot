@@ -27,8 +27,10 @@ class Wiki(commands.Cog):
             await ctx.send("OOPSIE WOOPSIE!! Uwu We made a fucky wucky!! A wittle fucko boingo! The code monkeys at our headquarters are working VEWY HAWD to fix this!")
         else:
             images = page.images
-            embed = discord.Embed(title=wikipedia.page(article).title, url=page.url, description=wikipedia.summary(article)) if len(
-                images) == 0 else discord.Embed(title=wikipedia.page(article).title, url=page.url, description=wikipedia.summary(article), image=images[0])
+            summary = wikipedia.summary(article)
+            desc = (summary[:1000] + '...') if len(summary) > 1000 else summary
+            embed = discord.Embed(title=wikipedia.page(article).title, url=page.url, description=desc) if len(
+                images) == 0 else discord.Embed(title=wikipedia.page(article).title, url=page.url, description=desc, image=images[0])
             await ctx.send(embed = embed)
 
 
