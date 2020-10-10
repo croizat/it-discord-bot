@@ -98,6 +98,9 @@ class Shitposts(commands.Cog):
             picture = discord.Embed()
             picture.set_image(url="https://i.imgur.com/P5UMuVz.jpg")
             await message.channel.send(content=output, embed=picture)
+        if re.search(r'\bisrael\b', message.content.lower()):
+            output = """"Get the fuck out of my phone," I scream, smashing it against a passing Arab child. The girl tries to apologize to me for breaking my phone with her skull, but it is too late. The sound of a .308 round hitting her chest lets me know that the threat has been neutralized. A week later, I am informed that her family has refused to compensate me for the loss of my phone, and thus I am now the legal owner of a 2.7 acre olive grove outside of Hebron. The state has provided me with a CAT D6 to assist with the move-in."""
+            await message.channel.send(output)
 
 
 def setup(bot):

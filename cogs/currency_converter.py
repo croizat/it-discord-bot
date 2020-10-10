@@ -36,6 +36,7 @@ class Converter(commands.Cog):
         amount = args[-1]
 
         if not amount.isnumeric():
+            print(f'failed with command {args}')
             await ctx.send("""use numbers, that'd help""")
             return
 
