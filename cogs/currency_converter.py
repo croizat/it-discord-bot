@@ -32,8 +32,8 @@ class Converter(commands.Cog):
             return
 
         fromCurrency = args[1].upper()
-        toCurrency = args[2].upper()
-        amount = args[-1]
+        toCurrency = args[-1].upper()
+        amount = args[0]
 
         if not amount.isnumeric():
             print(f'failed with command {args}')
