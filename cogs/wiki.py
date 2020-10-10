@@ -1,6 +1,10 @@
 import discord
 from discord.ext import commands
 import wikipedia
+import logging
+
+logging.basicConfig(level=logging.DEBUG)
+log = logging.getLogger(__name__)
 
 class Wiki(commands.Cog):
     def __init__(self, bot):
@@ -22,8 +26,10 @@ class Wiki(commands.Cog):
 
         if page is None and lookup and not disambiguation:
             page = wikipedia.suggest(article)
+            log.debug(f'{article} couldn\'t be found')
             await ctx.send(f"Couldn't find {article}. Is {page} right?")
         elif not lookup:
+            log.debug(f'wikipedia may be down. Couldn\'t locate {article}')
             await ctx.send("OOPSIE WOOPSIE!! Uwu We made a fucky wucky!! A wittle fucko boingo! The code monkeys at our headquarters are working VEWY HAWD to fix this!")
         else:
             images = page.images

@@ -2,6 +2,10 @@ import discord
 from discord.ext import commands
 import Currency
 import LiveMarket
+import logging
+
+logging.basicConfig(level=logging.DEBUG)
+log = logging.getLogger(__name__)
 
 
 class Converter(commands.Cog):
@@ -36,7 +40,7 @@ class Converter(commands.Cog):
         amount = args[0]
 
         if not amount.isnumeric():
-            print(f'failed with command {args}')
+            log.debug(f'failed to find number in {args}')
             await ctx.send("""use numbers, that'd help""")
             return
 
@@ -44,6 +48,7 @@ class Converter(commands.Cog):
         currency = Currency.Utility()
 
         if not currency.exist(fromCurrency.upper()) or not currency.exist(toCurrency.upper()):
+            log.debug(f'failed to find currency in {args}')
             await ctx.send('lol')
             return
 
