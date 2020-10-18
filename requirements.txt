@@ -2,3 +2,4 @@ git+https://github.com/Rapptz/discord.py
 requests==2.24.0
 urbandict==0.5
 wikipedia==1.4.0
+emoji==0.6.0
