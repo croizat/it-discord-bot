@@ -100,7 +100,7 @@ class Shitposts(commands.Cog):
                     picture = discord.Embed()
                     picture.set_image(url=link)
                     await message.channel.send(content=output, embed=picture)
-                elif isinstance(type(output), list):
+                elif isinstance(output, list):
                     if output[-1] == "random":
                         await message.channel.send(random.choice(output[:-1]))
                     else:
