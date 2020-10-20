@@ -7,7 +7,8 @@ import sys
 import os
 from platform import python_version
 
-# import logging
+import logging
+import traceback
 
 # logging.basicConfig(level=logging.DEBUG)
 # log = logging.getLogger(__name__)
@@ -28,7 +29,7 @@ async def on_ready():
 
 
 @bot.event
-async def on_member_join(member):
+async def on_member_join(member, ctx):
     member_counts = len([m for m in ctx.guild.members if not m.bot])
     guild = member.guild
     channel = discord.utils.get(guild.channels, id=763270876606234644)
@@ -36,7 +37,7 @@ async def on_member_join(member):
 
 
 @bot.event
-async def on_member_remove(member):
+async def on_member_remove(member, ctx):
     member_counts = len([m for m in ctx.guild.members if not m.bot])
     guild = member.guild
     channel = discord.utils.get(guild.channels, id=763270876606234644)
@@ -84,6 +85,7 @@ for filename in os.listdir("./cogs"):
 @bot.event
 async def on_error(event, *args, **kwargs):
     # error handling whenever the command is not found
+    logging.warning(traceback.format_exc())
     print("[!] Error Caused by:  ", event)
     print(args, kwargs)
 
