@@ -39,7 +39,6 @@ class Converter(commands.Cog):
         amount = args[0]
 
         if not amount.isnumeric():
-            log.debug(f"failed to find number in {args}")
             await ctx.send("""use numbers, that'd help""")
             return
 
@@ -49,7 +48,6 @@ class Converter(commands.Cog):
         if not currency.exist(fromCurrency.upper()) or not currency.exist(
             toCurrency.upper()
         ):
-            log.debug(f"failed to find currency in {args}")
             await ctx.send("lol")
             return
 
