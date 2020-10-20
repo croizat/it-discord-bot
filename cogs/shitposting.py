@@ -91,6 +91,7 @@ class Shitposts(commands.Cog):
             return None
         for key in self.posts:
             val = self.posts.get(key)
+            output = None
             link = None
             if re.search(key, message.content.lower()):
                 output = val
