@@ -2,10 +2,6 @@ import discord
 from discord.ext import commands
 import Currency
 import LiveMarket
-import logging
-
-logging.basicConfig(level=logging.DEBUG)
-log = logging.getLogger(__name__)
 
 
 class Converter(commands.Cog):
@@ -16,23 +12,26 @@ class Converter(commands.Cog):
     @commands.command()
     async def Rates(self, ctx):
         market = LiveMarket.API()
-        rates = market.request('USD')
+        rates = market.request("USD")
 
         parsedRates = str()
         currency = Currency.Utility()
 
-        parsedRates += '%s %s is the base currency\n' % (currency.getFlagEmoji('USD'), currency.getFullName('USD'))
+        parsedRates += "%s %s is the base currency\n" % (
+            currency.getFlagEmoji("USD"),
+            currency.getFullName("USD"),
+        )
         for key in rates:
             flag = currency.getFlagEmoji(key)
             fullname = currency.getFullName(key)
-            parsedRates += '%s %s[%s] - %.4f \n' % (flag, fullname, key, rates[key])
+            parsedRates += "%s %s[%s] - %.4f \n" % (flag, fullname, key, rates[key])
 
         await ctx.send(parsedRates)
 
     @commands.command()
     async def Convert(self, ctx, *args):
         if len(args) not in range(3, 5):
-            await ctx.send('[amount] [from_currency] [to_currency]')
+            await ctx.send("[amount] [from_currency] [to_currency]")
             return
 
         fromCurrency = args[1].upper()
@@ -40,23 +39,28 @@ class Converter(commands.Cog):
         amount = args[0]
 
         if not amount.isnumeric():
-            log.debug(f'failed to find number in {args}')
+            log.debug(f"failed to find number in {args}")
             await ctx.send("""use numbers, that'd help""")
             return
 
         amount = float(amount)
         currency = Currency.Utility()
 
-        if not currency.exist(fromCurrency.upper()) or not currency.exist(toCurrency.upper()):
-            log.debug(f'failed to find currency in {args}')
-            await ctx.send('lol')
+        if not currency.exist(fromCurrency.upper()) or not currency.exist(
+            toCurrency.upper()
+        ):
+            log.debug(f"failed to find currency in {args}")
+            await ctx.send("lol")
             return
 
         market = LiveMarket.API()
         rates = market.request(fromCurrency)
         if toCurrency in rates:
             rate = float(rates[toCurrency])
-            await ctx.send('%.2f %s to %s = %.2f' % (amount, fromCurrency, toCurrency, rate * amount))
+            await ctx.send(
+                "%.2f %s to %s = %.2f"
+                % (amount, fromCurrency, toCurrency, rate * amount)
+            )
 
 
 def setup(bot):
