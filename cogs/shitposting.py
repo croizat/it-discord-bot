@@ -93,12 +93,12 @@ class Shitposts(commands.Cog):
             link = None
             if re.search(key, message.content.lower()):
                 output = val
-                if isinstance(type(val), tuple):
-                    link = val[1]
+                if isinstance(output, tuple):
+                    link = output[1]
                 if link is not None:
                     picture = discord.Embed()
                     picture.set_image(url=link)
-                    await message.channel.send(content=output, embed=picture)
+                    await message.channel.send(content=output[0], embed=picture)
                 elif isinstance(output, list):
                     if output[-1] == "random":
                         await message.channel.send(random.choice(output[:-1]))
