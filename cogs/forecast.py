@@ -9,29 +9,44 @@ class Weather(commands.Cog):
         self.bot = bot
         self._last_member = None
 
-
     @commands.command()
     async def weather(self, context, *args):
         if not args:
-            forecast = weather.getForecast('victoria, sc')
-            embed = discord.Embed(title='Weather Forecast')
+            forecast = weather.getForecast("victoria, sc")
+            embed = discord.Embed(title="Weather Forecast")
 
-            embed.add_field(name=forecast.name, value='Temperature: ' + forecast.temperature +
-                            '\n' + 'Description: ' + forecast.description, inline=True)
+            embed.add_field(
+                name=forecast.name,
+                value="Temperature: "
+                + forecast.temperature
+                + "\n"
+                + "Description: "
+                + forecast.description,
+                inline=True,
+            )
 
             await context.send(embed=embed)
         else:
             try:
-                string = ' '.join(args)
+                string = " ".join(args)
                 forecast = weather.getForecast(string)
-                embed = discord.Embed(title='Weather Forecast')
+                embed = discord.Embed(title="Weather Forecast")
 
-                embed.add_field(name=forecast.name, value='Temperature: ' + forecast.temperature +
-                                '\n' + 'Description: ' + forecast.description, inline=True)
+                embed.add_field(
+                    name=forecast.name,
+                    value="Temperature: "
+                    + forecast.temperature
+                    + "\n"
+                    + "Description: "
+                    + forecast.description,
+                    inline=True,
+                )
 
                 await context.send(embed=embed)
             except:
-                await context.send(""""$weather <city>" dumbfuck. If you did that and it didn't work then the city wasn't count""")
+                await context.send(
+                    """"$weather <city>" dumbfuck. If you did that and it didn't work then the city wasn't count"""
+                )
 
 
 def setup(bot):
