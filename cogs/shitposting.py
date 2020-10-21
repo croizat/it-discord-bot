@@ -95,31 +95,28 @@ class Shitposts(commands.Cog):
         if message.author == self.bot.user:
             return None
         time_dif = (datetime.utcnow() - self.last_time_executed).total_seconds()
-        if time_dif < 60:
-            return None
-        else:
-            self.last_time_executed = datetime.utcnow()
-            for key in self.posts:
-                val = self.posts.get(key)
-                link = None
-                match = re.search(key, message.content.lower())
-                if match and match.group(0) != self.last_message:
-                    self.last_message = match.group(0)
-                    output = val
-                    if isinstance(output, tuple):
-                        link = output[1]
-                    if link is not None:
-                        picture = discord.Embed()
-                        picture.set_image(url=link)
-                        await message.channel.send(content=output[0], embed=picture)
-                    elif isinstance(output, list):
-                        if output[-1] == "random":
-                            await message.channel.send(random.choice(output[:-1]))
-                        else:
-                            for line in output:
-                                await message.channel.send(line)
+        for key in self.posts:
+            val = self.posts.get(key)
+            link = None
+            match = re.search(key, message.content.lower())
+            if match and match.group(0) != self.last_message and time_dif >= 60:
+                self.last_message = match.group(0)
+                self.last_time_executed = datetime.utcnow()
+                output = val
+                if isinstance(output, tuple):
+                    link = output[1]
+                if link is not None:
+                    picture = discord.Embed()
+                    picture.set_image(url=link)
+                    await message.channel.send(content=output[0], embed=picture)
+                elif isinstance(output, list):
+                    if output[-1] == "random":
+                        await message.channel.send(random.choice(output[:-1]))
                     else:
-                        await message.channel.send(output)
+                        for line in output:
+                            await message.channel.send(line)
+                else:
+                    await message.channel.send(output)
 
 
 def setup(bot):
