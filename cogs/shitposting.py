@@ -3,12 +3,14 @@ from discord.ext import commands
 import re
 import random
 import emoji
+from datetime import datetime
 
 
 class Shitposts(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self._last_member = None
+        self.last_time_executed = datetime.utcfromtimestamp(0)
         self.posts = {
             r"\bthe senate\b": (
                 "**Did you ever hear the tragedy of Darth Plagueis the Wise? I thought not. It's not a story the Jedi would tell you. It's a Sith legend. Darth Plagueis was a Dark Lord of the Sith, so powerful and so wise he could use the Force to influence the midichlorians to create life... He had such a knowledge of the dark side that he could even keep the ones he cared about from dying. The dark side of the Force is a pathway to many abilities some consider to be unnatural. He became so powerful... the only thing he was afraid of was losing his power, which eventually, of course, he did. Unfortunately, he taught his apprentice everything he knew, then his apprentice killed him in his sleep. Ironic, he could save others from death, but not himself.**",
@@ -91,25 +93,30 @@ class Shitposts(commands.Cog):
     async def on_message(self, message):
         if message.author == self.bot.user:
             return None
-        for key in self.posts:
-            val = self.posts.get(key)
-            link = None
-            if re.search(key, message.content.lower()):
-                output = val
-                if isinstance(output, tuple):
-                    link = output[1]
-                if link is not None:
-                    picture = discord.Embed()
-                    picture.set_image(url=link)
-                    await message.channel.send(content=output[0], embed=picture)
-                elif isinstance(output, list):
-                    if output[-1] == "random":
-                        await message.channel.send(random.choice(output[:-1]))
+        time_dif = (datetime.utcnow() - self.last_time_executed).total_seconds()
+        if time_dif < 60:
+            return None
+        else:
+            self.last_time_executed = datetime.utcnow()
+            for key in self.posts:
+                val = self.posts.get(key)
+                link = None
+                if re.search(key, message.content.lower()):
+                    output = val
+                    if isinstance(output, tuple):
+                        link = output[1]
+                    if link is not None:
+                        picture = discord.Embed()
+                        picture.set_image(url=link)
+                        await message.channel.send(content=output[0], embed=picture)
+                    elif isinstance(output, list):
+                        if output[-1] == "random":
+                            await message.channel.send(random.choice(output[:-1]))
+                        else:
+                            for line in output:
+                                await message.channel.send(line)
                     else:
-                        for line in output:
-                            await message.channel.send(line)
-                else:
-                    await message.channel.send(output)
+                        await message.channel.send(output)
 
 
 def setup(bot):
